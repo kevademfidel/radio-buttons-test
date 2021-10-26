@@ -51,7 +51,7 @@ const RadioButtonsGroup: React.FC<RadioButtonsGroupProps> = ({
   }
 
   const isNotCompatible = (currentRadioButtonId: string) => {
-    const firstGroupIsNotSelected = activeRadioButton[0] === null
+    const firstGroupIsNotSelected = activeRadioButton[0] === undefined
     if(firstGroupIsNotSelected) {
       return true
     } 
