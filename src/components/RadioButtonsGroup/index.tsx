@@ -50,9 +50,9 @@ const RadioButtonsGroup: React.FC<RadioButtonsGroupProps> = ({
     }
   }
 
-  const isNotCompatible = (currentRadioButtonId: string) => {
-    const firstGroupIsNotSelected = activeRadioButton[0] === undefined
-    if(firstGroupIsNotSelected) {
+  const isNotCompatible = (index: number, currentRadioButtonId: string) => {
+    const prevGroupIsNotSelected = activeRadioButton[index-1] === undefined
+    if(prevGroupIsNotSelected) {
       return true
     } 
     const flattenRules = currentRules.flat()
@@ -80,7 +80,7 @@ const RadioButtonsGroup: React.FC<RadioButtonsGroupProps> = ({
                   value={id}
                   control={<Radio />}
                   label={value}
-                  disabled={index===0 ? false : isNotCompatible(id)}
+                  disabled={index===0 ? false : isNotCompatible(index, id)}
                 />
               ))}
             </RadioGroup>
